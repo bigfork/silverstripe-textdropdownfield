@@ -9,6 +9,9 @@ jQuery.entwine('ss', ($) => {
       const Component = loadComponent('TextDropdownField');
       const schemaState = this.data('state');
 
+      const form = this.closest('.cms-edit-form');
+      form.changetracker('destroy');
+
       const setValue = (fieldName, value) => {
         const input = document.querySelector(`input[name="${fieldName}"]`);
 
@@ -20,6 +23,8 @@ jQuery.entwine('ss', ($) => {
       };
 
       ReactDOM.render(<Component {...schemaState} onAutofill={setValue} />, this[0]);
+
+      form.changetracker(form.getChangeTrackerOptions());
     },
 
     onunmatch() {
