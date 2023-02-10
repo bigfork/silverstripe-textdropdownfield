@@ -26,7 +26,7 @@ class TextDropdownField extends FieldGroup
 
     public function __construct(
         string $name,
-        ?string $title = null,
+        string $title,
         string $textRelation,
         string $dropdownRelation,
         array $dropdownSource
